@@ -1,6 +1,8 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema } from "mongoose";
+import type { Document } from "mongoose";
 
 export interface IProduct extends Document {
+  id: number;
   foodType: string;
   name: string;
   desc: string;
@@ -10,12 +12,13 @@ export interface IProduct extends Document {
   category: string;
   amount: number;
   isFav?: boolean;
-  isNew?: boolean;
+  isFresh?: boolean;
   isPopular?: boolean;
 }
 
 const productSchema = new Schema<IProduct>(
   {
+    id: { type: Number, required: true },
     foodType: { type: String, required: true },
     name: { type: String, required: true },
     desc: { type: String, required: true },
@@ -26,7 +29,7 @@ const productSchema = new Schema<IProduct>(
 
     // homepage 
     isFav: { type: Boolean, default: false },      // favorites
-    isNew: { type: Boolean, default: false },    // Today’s special
+    isFresh: { type: Boolean, default: false },    // Today’s special
     isPopular: { type: Boolean, default: false }, // Top selling
   },
   { timestamps: true }
