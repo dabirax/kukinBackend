@@ -1,6 +1,4 @@
-import type { IProduct } from "./models/products.model";
-
-const products: Partial<IProduct>[] = [
+const products = [
   {
     id: 1,
     foodType: "Pizza",
@@ -45,4 +43,4 @@ const products: Partial<IProduct>[] = [
   },
 ];
 
-export default products;
+module.exports = products;

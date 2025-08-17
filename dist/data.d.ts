@@ -1,4 +1,2 @@
-import type { IProduct } from "./models/products.model";
-declare const products: Partial<IProduct>[];
-export default products;
+export {};
 //# sourceMappingURL=data.d.ts.map

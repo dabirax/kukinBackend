@@ -1,13 +1,13 @@
-import express from "express";
-import type {Router} from 'express'
-import { getAllProducts,
+const express = require("express");
+const {
+  getAllProducts,
   getProductById,
   createProduct,
   updateProduct,
   deleteProduct
-} from "../controllers/product.controller";
+} = require("../controllers/product.controller");
 
-const router: Router = express.Router();
+const router = express.Router();
 
 router.get("/", getAllProducts);
 router.get("/:id", getProductById);
@@ -15,4 +15,4 @@ router.post("/", createProduct);
 router.put("/:id", updateProduct);
 router.delete("/:id", deleteProduct);
 
-export default router;
+module.exports = router;

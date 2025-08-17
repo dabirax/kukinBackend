@@ -44,5 +44,5 @@ const products = [
         isPopular: true,
     },
 ];
-exports.default = products;
+module.exports = products;
 //# sourceMappingURL=data.js.map
