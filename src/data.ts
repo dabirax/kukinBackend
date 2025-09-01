@@ -51,7 +51,7 @@ const products = [
 //     desc: "Melon seed soup cooked with vegetables, palm oil, and assorted meat",
 //     rating: "4.8",
 //     price: 15.0,
-//     img: "https://example.com/egusi.jpg",
+//     img: "https://res.cloudinary.com/ddxbkmpcu/image/upload/v1756747080/kukin/z3az1msbxbnanzizync8.jpg",
 //     category: "Soups",
 //     amount: 1,
 //     isFav: true,
