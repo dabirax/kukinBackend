@@ -7,7 +7,7 @@ const path = require("path");
 
 console.log(cloudinary.config().cloud_name);
 
-const imagePath = path.join(__dirname, "../../assets/jollofRice.jpeg");
+const imagePath = path.join(__dirname, "../../assets/egusi.jpg");
 
 cloudinary.uploader
   .upload(imagePath, {
