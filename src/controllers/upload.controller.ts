@@ -1,18 +1,27 @@
 const path = require("path");
-const cloudinary = require("../config/cloudinary");
+const uploader = require("../config/cloudinary").uploader;
+const fs = require("fs");
 
 const uploadController = {
   // 🔹 Upload via Postman (multer)
   uploadImage: async (req: any, res: any) => {
     try {
-      console.log(req.file);
+      console.log(req.file, "\n hello");
       if (!req.file) {
         return res.status(400).json({ message: "No file uploaded" });
       }
 
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: "uploads",
+    // Make sure cloudinary.uploader exists here 👇
+      console.log("cloudinary.uploader:", typeof uploader);
+      
+    // Upload file from local storage to Cloudinary
+      const result = await uploader.upload(req.file.path, {
+        folder: "kukin",
       });
+
+      
+    // Remove local file after uploading to cloud
+    fs.unlinkSync(req.file.path);
 
       res.status(200).json({
         message: "File uploaded successfully",
@@ -29,8 +38,8 @@ const uploadController = {
     try {
       const imagePath = path.join(__dirname, "../../assets/egusi.jpg"); // change as needed
 
-      const result = await cloudinary.uploader.upload(imagePath, {
-        folder: "uploads",
+      const result = await uploader.upload(imagePath, {
+        folder: "kukin",
       });
 
       res.status(200).json({

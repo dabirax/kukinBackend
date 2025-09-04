@@ -1,4 +1,5 @@
-require("dotenv").config({ path: "../../.env" });
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
@@ -7,6 +8,11 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET || "Undefined",
 });
 
-console.log("cloudinary:", process.env.CLOUDINARY_CLOUD_NAME);
+console.log("✅ Cloudinary Config:", {
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY ? "loaded" : "missing",
+  api_secret: process.env.CLOUDINARY_API_SECRET ? "loaded" : "missing",
+});
+
 
 module.exports = cloudinary;

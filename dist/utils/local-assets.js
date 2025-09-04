@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const dotenv = require("dotenv");
-const cloudinary = require("../config/cloudinary");
+require("dotenv").config({ path: "../../.env" });
+const cloudinary = require("../config/cloudinary.ts");
 const path = require("path");
 // Load environment variables
-dotenv.config();
 console.log("Cloudinary config: ", cloudinary.config().cloud_name);
 const imagePath = path.join(__dirname, "../../assets/okra.jpg");
 cloudinary.uploader
