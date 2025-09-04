@@ -105,7 +105,7 @@ const products = [
 //     desc: "Smoky party-style Jollof rice cooked with tomatoes and spices",
 //     rating: "5.0",
 //     price: 12.0,
-//     img: "https://example.com/jollof.jpg",
+//     img: "https://res.cloudinary.com/ddxbkmpcu/image/upload/v1755627532/eeyrepv4jjhnefp9fkn2.jpg",
 //     category: "Rice Dishes",
 //     amount: 1,
 //     isFav: true,

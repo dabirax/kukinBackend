@@ -21,6 +21,5 @@ app.use("/api/upload", uploadRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server runs on port ${PORT}`);
-    console.log("cloudinary:" + process.env.CLOUDINARY_CLOUD_NAME);
 });
 //# sourceMappingURL=server.js.map
