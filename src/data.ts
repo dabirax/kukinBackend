@@ -316,4 +316,57 @@ const products = [
 ];
 
 
+
+  //   "id": 17,
+  //   "name": "Zobo Drink",
+  //   "desc": "Refreshing hibiscus drink served chilled",
+  //   "rating": "4.7",
+  //   "price": 3.5,
+  //   "img": "https://res.cloudinary.com/ddxbkmpcu/image/upload/v1757006856/kukin/zhsczxqeqx1tqbnzskfo.jpg",
+  //   "category": "Drinks",
+  //   "amount": 1,
+  //   "isFav": true,
+  //   "isNew": true,
+  //   "isPopular": false
+  // },
+  // {
+  //   "id": 18,
+  //   "name": "Palm Wine",
+  //   "desc": "Natural sweet local wine tapped from palm trees",
+  //   "rating": "4.8",
+  //   "price": 7.0,
+  //   "img": "https://res.cloudinary.com/ddxbkmpcu/image/upload/v1757006899/kukin/k8yxg7tfcq2oysmuw4m1.jpg",
+  //   "category": "Drinks",
+  //   "amount": 1,
+  //   "isFav": false,
+  //   "isNew": false,
+  //   "isPopular": true
+  // },
+  // {
+  //   "id": 19,
+  //   "name": "Chapman",
+  //   "desc": "Popular Nigerian cocktail made with Fanta, Sprite, Angostura bitters",
+  //   "rating": "4.9",
+  //   "price": 5.5,
+  //   "img": "https://res.cloudinary.com/ddxbkmpcu/image/upload/v1757006938/kukin/uydzndouqj7xbyqjyvjf.jpg",
+  //   "category": "Drinks",
+  //   "amount": 1,
+  //   "isFav": true,
+  //   "isNew": true,
+  //   "isPopular": true
+  // },
+  // {
+  //   "id": 20,
+  //   "name": "Kunu",
+  //   "desc": "Millet-based traditional drink rich in flavor",
+  //   "rating": "4.5",
+  //   "price": 4.5,
+  //   "img": "https://res.cloudinary.com/ddxbkmpcu/image/upload/v1757006972/kukin/ezc1iixftxxvjzv4mgoz.jpg",
+  //   "category": "Drinks",
+  //   "amount": 1,
+  //   "isFav": false,
+  //   "isNew": false,
+  //   "isPopular": false
+  // }
+
 module.exports = products;

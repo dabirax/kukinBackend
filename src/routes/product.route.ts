@@ -4,7 +4,8 @@ const {
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  bulkUploadProducts
 } = require("../controllers/product.controller");
 
 const router = express.Router();
@@ -14,5 +15,9 @@ router.get("/:id", getProductById);
 router.post("/", createProduct);
 router.put("/:id", updateProduct);
 router.delete("/:id", deleteProduct);
+
+
+// 👇 bulk upload route
+router.post("/bulk", bulkUploadProducts);
 
 module.exports = router;

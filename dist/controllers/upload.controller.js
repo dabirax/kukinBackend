@@ -32,7 +32,7 @@ const uploadController = {
     // 🔹 Upload a fixed local asset
     uploadLocalAsset: async (req, res) => {
         try {
-            const imagePath = path.join(__dirname, "../../assets/egusi.jpg"); // change as needed
+            const imagePath = path.join(__dirname, "../../assets/moimoi.jpg"); // change as needed
             const result = await uploader.upload(imagePath, {
                 folder: "kukin",
             });
