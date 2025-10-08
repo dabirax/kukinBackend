@@ -19,7 +19,7 @@ app.use("/api/upload", uploadRoutes);
 //Swagger Documentation
 const swaggerDocument = YAML.load("./src/docs/swagger.yaml");
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 module.exports = app;
