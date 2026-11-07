@@ -46,7 +46,7 @@ async function updateProduct(req: any, res: any) {
   try {
     const { id } = req.params;
 
-    const updated = await Product.findByIdAndUpdate({id: parseInt(id)}, req.body, {
+    const updated = await Product.findOneAndUpdate({ id: parseInt(id) }, req.body, {
       new: true,
       runValidators: true,
     });

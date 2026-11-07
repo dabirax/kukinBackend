@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = require("dotenv");
 const connectDB = require("./db/connectDB");
 const app = require("./app");
+const cors = require("cors");
 // Load environment variables
 dotenv.config();
 const PORT = process.env.PORT || 5000;

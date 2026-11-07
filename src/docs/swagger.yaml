@@ -5,6 +5,8 @@ info:
   description: API for managing food products (CRUD + bulk upload).
 
 servers:
+  - url: https://kukinbackend.onrender.com/api
+    description: Production server (Render)
   - url: http://localhost:5000/api
     description: Local development server
 
@@ -117,7 +119,7 @@ paths:
         "500":
           description: Server error while deleting
 
-  /products/bulk-upload:
+  /products/bulk:
     post:
       summary: Bulk upload products (insert or update with upsert)
       tags:
@@ -159,7 +161,8 @@ components:
           example: 101
         foodType:
           type: string
-          example: "Pizza"
+          description: "Product category (Soups, Rice, Meat, Swallows, Street, Drinks)"
+          example: "Soups"
         name:
           type: string
           example: "Margherita"
