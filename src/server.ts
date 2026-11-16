@@ -1,10 +1,13 @@
 const dotenv = require("dotenv");
+
+// Load environment variables before importing modules that read them.
+dotenv.config();
+
 const connectDB = require("./db/connectDB");
 const app = require("./app");
-const cors = require("cors");
+const { validateEnv } = require("./config/env");
 
-// Load environment variables
-dotenv.config();
+validateEnv();
 
 const PORT = process.env.PORT || 5000;
 

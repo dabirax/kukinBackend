@@ -1,0 +1,25 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
+const authController = require("../controllers/auth.controller");
+const { requireAuth } = require("../middleware/auth.middleware");
+const avatarUpload = require("../middleware/avatarUpload.middleware");
+const { loginLimiter, signupLimiter, otpLimiter, forgotPasswordLimiter, } = require("../middleware/rateLimit.middleware");
+const router = express.Router();
+router.post("/signup", signupLimiter, authController.signup);
+router.post("/signup/verify-otp", otpLimiter, authController.verifySignupOtp);
+router.post("/signup/resend-otp", otpLimiter, authController.resendSignupOtp);
+router.post("/login", loginLimiter, authController.login);
+router.post("/logout", authController.logout);
+router.get("/me", requireAuth, authController.getMe);
+router.patch("/me", requireAuth, authController.updateMe);
+router.post("/avatar", requireAuth, avatarUpload.single("image"), authController.uploadAvatar);
+router.patch("/password", requireAuth, authController.changePassword);
+router.post("/forgot-password", forgotPasswordLimiter, authController.forgotPassword);
+router.post("/forgot-password/verify-otp", otpLimiter, authController.verifyResetOtp);
+router.post("/reset-password", loginLimiter, authController.resetPassword);
+router.get("/providers", authController.providers);
+router.get("/google", authController.oauthNotImplemented);
+router.get("/github", authController.oauthNotImplemented);
+module.exports = router;
+//# sourceMappingURL=auth.route.js.map

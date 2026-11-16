@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = require("dotenv");
+// Load environment variables before importing modules that read them.
+dotenv.config();
 const connectDB = require("./db/connectDB");
 const app = require("./app");
-const cors = require("cors");
-// Load environment variables
-dotenv.config();
+const { validateEnv } = require("./config/env");
+validateEnv();
 const PORT = process.env.PORT || 5000;
 // Connect DB first, then start server
 connectDB()

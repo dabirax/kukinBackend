@@ -1,0 +1,35 @@
+const express = require("express");
+const articleController = require("../controllers/article.controller");
+const { requireAuth, optionalAuth } = require("../middleware/auth.middleware");
+const coverUpload = require("../middleware/avatarUpload.middleware");
+
+const router = express.Router();
+
+router.get("/", optionalAuth, articleController.getArticles);
+router.get("/featured", optionalAuth, articleController.getFeaturedArticle);
+router.get("/mine", requireAuth, articleController.getMyArticles);
+router.get("/saved", requireAuth, articleController.getSavedArticles);
+
+router.post("/", requireAuth, articleController.createArticle);
+router.post(
+  "/cover",
+  requireAuth,
+  coverUpload.single("image"),
+  articleController.uploadArticleCover
+);
+
+router.get("/:slug", optionalAuth, articleController.getArticleBySlug);
+router.post("/:slug/view", articleController.recordArticleView);
+
+router.patch("/:id", requireAuth, articleController.updateArticle);
+router.patch("/:id/publish", requireAuth, articleController.publishArticle);
+router.delete("/:id", requireAuth, articleController.deleteArticle);
+
+router.post("/:id/like", requireAuth, articleController.likeArticle);
+router.delete("/:id/like", requireAuth, articleController.unlikeArticle);
+router.post("/:id/save", requireAuth, articleController.saveArticle);
+router.delete("/:id/save", requireAuth, articleController.unsaveArticle);
+
+router.post("/:id/report", requireAuth, articleController.reportArticle);
+
+module.exports = router;
