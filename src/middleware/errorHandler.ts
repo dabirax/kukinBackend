@@ -1,4 +1,14 @@
 function errorHandler(err: any, _req: any, res: any, _next: any) {
+  if (
+    err?.type === "entity.parse.failed" ||
+    (err instanceof SyntaxError && (err as any)?.status === 400 && "body" in err)
+  ) {
+    return res.status(400).json({
+      message: "The request body contains invalid JSON",
+      code: "INVALID_JSON",
+    });
+  }
+
   if (err?.name === "MulterError") {
     const message =
       err.code === "LIMIT_FILE_SIZE"

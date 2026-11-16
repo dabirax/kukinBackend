@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function errorHandler(err, _req, res, _next) {
+    if (err?.type === "entity.parse.failed" ||
+        (err instanceof SyntaxError && err?.status === 400 && "body" in err)) {
+        return res.status(400).json({
+            message: "The request body contains invalid JSON",
+            code: "INVALID_JSON",
+        });
+    }
     if (err?.name === "MulterError") {
         const message = err.code === "LIMIT_FILE_SIZE"
             ? "Image must be 5MB or smaller"

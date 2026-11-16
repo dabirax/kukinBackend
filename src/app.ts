@@ -41,9 +41,21 @@ app.use("/api/auth", authRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/articles", articleRouter);
 
+app.get("/api", (_req: any, res: any) =>
+  res.json({ status: "ok", service: "kukin-backend" })
+);
+
 const swaggerDocument = YAML.load("./src/docs/swagger.yaml");
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use((req: any, res: any) => {
+  res.status(404).json({
+    message: "Resource not found",
+    code: "NOT_FOUND",
+    path: req.originalUrl,
+  });
+});
 
 app.use(errorHandler);
 
