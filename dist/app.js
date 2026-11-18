@@ -8,6 +8,9 @@ const uploadRoutes = require("./routes/upload.route");
 const authRouter = require("./routes/auth.route");
 const cartRouter = require("./routes/cart.route");
 const articleRouter = require("./routes/article.route");
+const webhookRouter = require("./routes/webhook.route");
+const paymentRouter = require("./routes/payment.route");
+const orderRouter = require("./routes/order.route");
 const errorHandler = require("./middleware/errorHandler");
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
@@ -26,11 +29,14 @@ app.use(cors({
         callback(new Error("Origin is not allowed by CORS"));
     },
 }));
+app.use("/api/payments/webhook", webhookRouter);
 app.use(bodyParser.json({ limit: "1mb" }));
 app.use("/api/products", productRouter);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/auth", authRouter);
 app.use("/api/cart", cartRouter);
+app.use("/api/payments", paymentRouter);
+app.use("/api/orders", orderRouter);
 app.use("/api/articles", articleRouter);
 app.get("/api", (_req, res) => res.json({ status: "ok", service: "kukin-backend" }));
 const swaggerDocument = YAML.load("./src/docs/swagger.yaml");

@@ -140,6 +140,7 @@ async function clearCart(req: any, res: any) {
 }
 
 module.exports = {
+  buildCartResponse,
   getCart,
   replaceCart,
   clearCart,

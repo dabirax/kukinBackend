@@ -9,6 +9,8 @@ const REQUIRED_ENV = [
   "OTP_SECRET",
   "FRONTEND_URL",
   "CORS_ORIGINS",
+  "PAYSTACK_SECRET_KEY",
+  "DELIVERY_FEE_NAIRA",
 ];
 
 function validateEnv() {
